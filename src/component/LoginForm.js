@@ -23,6 +23,7 @@ class LoginForm extends Component {
     return (
       <div>
         <h1>Login Form</h1>
+        <br />
         <form onSubmit={this.handleSubmit}>
           <label htmlFor='email'>Email:</label>
           <input
@@ -32,6 +33,7 @@ class LoginForm extends Component {
             value={this.state.email}
             onChange={this.handleChange}
           />
+          <br />
           <label htmlFor='password'>Password:</label>
           <input
             type='password'
@@ -40,6 +42,7 @@ class LoginForm extends Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
+          <br />
           <input type='submit' value='Login' />
         </form>
       </div>
