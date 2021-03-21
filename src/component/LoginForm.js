@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
+import { loginUser } from "../redux/actions/LoginActionCreator"
 
 class LoginForm extends Component {
   constructor(props) {
@@ -16,10 +18,14 @@ class LoginForm extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state)
+    const user = this.state
+    console.log(user)
+    this.props.loginUser(user)
   }
 
   render() {
+    // HTMLFormControlsCollection
+
     return (
       <div>
         <h1>Login Form</h1>
@@ -49,4 +55,13 @@ class LoginForm extends Component {
     )
   }
 }
-export default LoginForm
+
+const mapStateToProps = (state) => ({
+  Keylogin: state.login,
+})
+
+const mapDispatchToProps = {
+  loginUser,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
