@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { loginUser } from "../redux/actions/LoginActionCreator"
-
+import { Link } from "react-router-dom"
 class LoginForm extends Component {
   constructor(props) {
     super(props)
@@ -28,6 +28,7 @@ class LoginForm extends Component {
 
     return (
       <div>
+        <Link to='/view'> View Data</Link>
         <h1>Login Form</h1>
         <br />
         <form onSubmit={this.handleSubmit}>

@@ -1,17 +1,24 @@
 import React, { Component } from "react"
-
+import { Link } from "react-router-dom"
+import { connect } from "react-redux"
 class viewData extends Component {
   constructor(props) {
     super(props)
     this.state = {}
   }
   render() {
+    const { isLoggedIn, user } = this.props.keylogin
     return (
       <div>
-        <h1>Email:</h1>
-        <h1>Password:</h1>
+        <Link to='/'> Login Page</Link>
+        <h1>Email: {user.email}</h1>
+        <h1>Password: {user.password}</h1>
+        <h1>isLogIn: {isLoggedIn ? "Logged In" : "Logged Out"}</h1>
       </div>
     )
   }
 }
-export default viewData
+const mapStateToProps = (state) => ({
+  keylogin: state.login,
+})
+export default connect(mapStateToProps, {})(viewData)
